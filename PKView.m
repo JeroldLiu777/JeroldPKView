@@ -11,7 +11,11 @@
 #define kViewHeight(View) CGRectGetHeight(View.frame)
 #define JERGAP 5
 
+#if defined(__IPHONE_10_0) && (__IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_10_0)
+@interface PKView() <CAAnimationDelegate>
+#else
 @interface PKView()
+#endif
 @property (strong, nonatomic)CAGradientLayer *leftLayer,*rightLayer;//左右两个view的动画layer
 @property (nonatomic, strong) UIBezierPath *path;
 @property (nonatomic, assign) float leftRate;
@@ -111,7 +115,13 @@
     anis.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
     anis.removedOnCompletion = NO;
     anis.fillMode = kCAFillModeForwards;
+    anis.delegate = self;
     [layer addAnimation:anis forKey:nil];
+}
+
+- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag{
+    [self.leftLayer removeAllAnimations];
+    [self.rightLayer removeAllAnimations];
 }
 
 #pragma mark -- getter
