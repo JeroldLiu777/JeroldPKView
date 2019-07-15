@@ -131,8 +131,8 @@
     if (!_leftLayer) {
         CAGradientLayer *itemLayer = [CAGradientLayer layer];
         //蓝色
-        itemLayer.colors = @[(__bridge id) [self fmut_colorWithRGB:0x79C0FF].CGColor,
-                             (__bridge id) [self fmut_colorWithRGB:0x589AFF].CGColor];
+        itemLayer.colors = @[(__bridge id) [self jercolorWithRGB:0x79C0FF].CGColor,
+                             (__bridge id) [self jercolorWithRGB:0x589AFF].CGColor];
         itemLayer.locations = @[@0, @1.0];
         itemLayer.startPoint = CGPointMake(0, 0);//渐变色以x轴为方向渐变
         itemLayer.endPoint = CGPointMake(1.0, 0);
@@ -147,8 +147,8 @@
     if (!_rightLayer) {
         CAGradientLayer *itemLayer = [CAGradientLayer layer];
         //红色
-        itemLayer.colors = @[(__bridge id) [self fmut_colorWithRGB:0xFF73C9].CGColor,
-                             (__bridge id) [self fmut_colorWithRGB:0xFF86DF].CGColor];
+        itemLayer.colors = @[(__bridge id) [self jercolorWithRGB:0xFF73C9].CGColor,
+                             (__bridge id) [self jercolorWithRGB:0xFF86DF].CGColor];
         itemLayer.locations = @[@0, @1.0];
         itemLayer.startPoint = CGPointMake(0, 0);//渐变色以x轴为方向渐变
         itemLayer.endPoint = CGPointMake(1.0, 0);
@@ -159,7 +159,7 @@
 
 #pragma mark -- Tools
 
-- (UIColor *)fmut_colorWithRGB:(uint32_t)rgbValue
+- (UIColor *)jercolorWithRGB:(uint32_t)rgbValue
 {
     return [UIColor colorWithRed:((rgbValue & 0xFF0000) >> 16) / 255.0f
                            green:((rgbValue & 0xFF00) >> 8) / 255.0f
