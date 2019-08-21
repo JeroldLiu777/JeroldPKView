@@ -1,10 +1,4 @@
-//
-//  PKView.h
-//  动态圆柱
-//
-//  Created by jerold on 2019/5/27.
-//  Copyright © 2019 CodingFire. All rights reserved.
-//
+
 
 #import <UIKit/UIKit.h>
 
