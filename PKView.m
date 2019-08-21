@@ -1,10 +1,4 @@
-//
-//  PKView.m
-//  动态圆柱
-//
-//  Created by jerold on 2019/5/27.
-//  Copyright © 2019 CodingFire. All rights reserved.
-//
+
 
 #import "PKView.h"
 #define kViewWidth(View) CGRectGetWidth(View.frame)
