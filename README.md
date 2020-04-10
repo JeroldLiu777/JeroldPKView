@@ -13,7 +13,7 @@ PK动画
 ### 2.实现方式：
 1.渐变色
 CAGradientLayer可以实现渐变色
-```
+```objectivc-c
 - (CAGradientLayer *)leftLayer {
     if (!_leftLayer) {
         CAGradientLayer *itemLayer = [CAGradientLayer layer];
@@ -55,7 +55,7 @@ CAGradientLayer可以实现渐变色
 
 3.不规则图形
 要画出左右layer的不规则形状，我们拆分一下，view的外轮廓用切圆角实现，那么剩下就是如何画出中间部分的斜边。用关键点画贝塞尔线的方式来实现，然后用CAShapeLayer作为左右layer的mask
-```
+```objectivc-c
 CAShapeLayer *shapLayerRight = [CAShapeLayer layer];
 shapLayerRight.path = [self getPathByPoints:pointArray1].CGPath;
 self.rightLayer.mask = shapLayerRight;
@@ -76,7 +76,7 @@ self.rightLayer.mask = shapLayerRight;
 ```
 
 ### 3.使用方法：
-```
+```objectivc-c
 self.pkView = [[PKView alloc]initWithLeftRate:0.5 frame:CGRectMake(15, 200, SCREEN_WIDTH-30, 36)];
 self.pkView.layer.cornerRadius = 18;
 self.pkView.layer.masksToBounds = YES;
